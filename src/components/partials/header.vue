@@ -4,7 +4,7 @@
       <div class="justified">
         <router-link to="/">
           <img
-            :src="'./img/daoed-drive-wordmark.png'"
+            :src="'/img/daoed-drive-wordmark.png'"
             class="wordmark"
           >
         </router-link>
