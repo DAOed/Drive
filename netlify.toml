@@ -1,0 +1,19 @@
+[build]
+  command = "yarn build"
+  publish = "dist/"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    "can't-be-evil" = "true"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
