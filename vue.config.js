@@ -30,7 +30,7 @@ module.exports = {
             renderer: new Renderer({
               injectProperty: '__PRERENDER_INJECTED',
               inject: {
-                prerender: true
+                PRERENDER: true
               },
               headless: true
             })
