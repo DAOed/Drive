@@ -5,7 +5,7 @@ export const baseBlockstackApi = "https://core.blockstack.org/v1/"
 
 export const placeholderImg = "./img/placeholder.png"
 
-export const maxFileSize = 4194304
+export const maxFileSize = 1048576
 
 export const DApps =
  [

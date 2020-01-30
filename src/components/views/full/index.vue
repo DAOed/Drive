@@ -191,7 +191,7 @@ import { newFiles, newFolder, openFolder, formatBytes, readLocalFiles, readExter
 import { sortModified, removeBaseFileName, validUploadSize } from "@lib/helpers"
 
 import { mapGetters } from "vuex"
-import { maxFolderLevels, coreFolders } from "@constants"
+import { maxFolderLevels, coreFolders, maxFileSize } from "@constants"
 
 export default {
   components: {
@@ -317,7 +317,7 @@ export default {
       let validSize = validUploadSize([file])
 
       if (!validSize) {
-        this.$Toast.warning("Max file size allowed exceeded")
+        this.$Toast.warning(`Sorry, files > ${formatBytes(maxFileSize)} not yet supported`)
         this.progress = 0
       } else {
         this.progress += 50
@@ -339,7 +339,7 @@ export default {
       let validSize = validUploadSize(filesData)
 
       if (!validSize) {
-        this.$Toast.warning("Max file size allowed exceeded")
+        this.$Toast.warning(`Sorry, files > ${formatBytes(maxFileSize)} not yet supported`)
         this.progress = 0
       } else {
         this.progress += 40
