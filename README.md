@@ -7,7 +7,7 @@ Upload, download, star, share(coming soon) and manage your files
 DAOed Drive is a secure, private and user-friendly decentralized BlockStack file manager.
 
 ## Features
-* Upload and dnload files. Search file, trash and bookmark files
+* Upload and download files. Search file, trash and bookmark files
 * Create folders to organize your files, view files/folders using *grid* or *table* view
 * Trash a file/folder, restore file/folder from trash, or permanently delete a file
 * Light and dark theme support
@@ -15,7 +15,7 @@ DAOed Drive is a secure, private and user-friendly decentralized BlockStack file
 ## Project setup
 * Clone this repo: `git clone git@github.com:DAOed/Drive.git`
 * Run: `yarn install`
-* After installtion is complete, run: `yarn serve`
+* After installation is complete, run: `yarn serve`
 * Open `localhost:8080` in your browser to see app
 
 ## Contributing
@@ -30,7 +30,7 @@ DAOed Drive is a secure, private and user-friendly decentralized BlockStack file
 Kindly note that we cannot guarantee that all PRs will be merged, thank you for understanding.
 
 ## Support/Community
-We invite you to join our community. Visit our [community portal](https://about.daoed.com/community) to see the various channels by hich you can connect with us.
+We invite you to join our community. Visit our [community portal](https://about.daoed.com/community) to see the various channels by which you can connect with us.
 
 ## License
 
