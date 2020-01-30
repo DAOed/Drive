@@ -48,6 +48,10 @@ export const newFiles = async (files) => {
       ...files[i],
       modified: new Date()
     }
+    // extremely important - else will put file content too among meta,
+    // increasing size of meta, duplicating file content and slowing entire system down
+    delete meta.content
+    // delete it in the new `meta` object and not actual `files` content as we will use `files[i].content` this later
     fileMetas.push(meta)
 
     filesSize += files[i].size
