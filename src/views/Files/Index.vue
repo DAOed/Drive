@@ -53,7 +53,8 @@ export default {
   }),
   computed: {
     ...mapGetters([
-      "folderMeta"
+      "folderMeta",
+      "coreFolderStats"
     ]),
     activeFolderMeta () {
       if (!this.folderMeta) return {}
@@ -81,6 +82,19 @@ export default {
       this.loaded = true
     } else {
       await this.loadMeta(coreFolders.files, coreFolders.files)
+    }
+
+    if (this.folderMeta.sys) {
+      let updatedCoreFolderStats = {
+        ...this.coreFolderStats,
+        files: {
+          ...this.coreFolderStats.files,
+          files: this.folderMeta.files.length,
+          subfolders: this.folderMeta.subfolders.length,
+          featuredFolders: this.folderMeta.subfolders.filter((f) => f.starred).slice(0, 5)
+        }
+      }
+      this.$store.dispatch("coreFolderStats", updatedCoreFolderStats)
     }
   },
   methods: {

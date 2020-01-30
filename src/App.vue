@@ -30,7 +30,7 @@ import ProgressBar from "@components/progress"
 import { getFile, userSession, listAppFiles } from "@lib/blockstack"
 import { coreFolders, statsRefreshTime } from "@constants"
 
-import { readyCoreFolders, loadFolderStats } from "@lib/utils"
+import { readyCoreFolders } from "@lib/utils"
 
 export default {
   components: {
@@ -140,10 +140,6 @@ export default {
 
       next()
     })
-
-    setInterval(async () => {
-      await loadFolderStats()
-    }, statsRefreshTime)
   },
   methods: {
     async loadData () {

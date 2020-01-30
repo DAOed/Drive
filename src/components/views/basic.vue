@@ -274,7 +274,8 @@ export default {
   }),
   computed: {
     ...mapGetters([
-      "folderMeta"
+      "folderMeta",
+      "coreFolderStats"
     ]),
     viewTitle () {
       return this.folderMode ? `${this.title} folders` : `${this.title} files`
@@ -291,6 +292,20 @@ export default {
 
     this.$store.dispatch("folderMeta", folderMeta)
     this.appLoading = false
+
+    if (this.folderMeta.sys) {
+      let target = this.folderMeta.name.toLowerCase()
+
+      let updatedCoreFolderStats = {
+        ...this.coreFolderStats,
+        [target]: {
+          ...this.coreFolderStats[target],
+          files: this.folderMeta.files.length,
+          subfolders: this.folderMeta.subfolders.length
+        }
+      }
+      this.$store.dispatch("coreFolderStats", updatedCoreFolderStats)
+    }
   },
   methods: {
     search (data) {
