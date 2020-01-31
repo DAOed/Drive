@@ -1,10 +1,10 @@
 
 import { lookupProfile, UserSession, AppConfig } from "blockstack"
 
-import { baseBlockstackApi } from "@constants"
+import { baseBlockstackApi, appDomain } from "@constants"
 import { filer } from "./helpers"
 
-const appConfig = new AppConfig(["store_write"])
+const appConfig = new AppConfig(["store_write"], appDomain)
 export const userSession = new UserSession({ appConfig })
 
 export const getUser = async (account, apiBase = baseBlockstackApi + "names") => {
