@@ -3,14 +3,14 @@ module.exports = {
   env: {
     node: true
   },
-  'extends': [
-    'plugin:vue/recommended',
-    '@vue/standard'
+  "extends": [
+    "plugin:vue/recommended",
+    "@vue/standard"
   ],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    "no-unused-vars": 0,
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     "no-console": 0,
     "indent": [2, 2],
     "semi": "error",
@@ -19,6 +19,6 @@ module.exports = {
     "quotes": [2, "double", {"avoidEscape": true}]
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: "babel-eslint"
   }
 }
