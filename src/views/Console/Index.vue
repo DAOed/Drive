@@ -94,7 +94,7 @@
 
 <script>
 
-import { listFiles, getFile } from "blockstack"
+import { listFiles } from "blockstack"
 import { erasePath, loadFileContent } from "@lib/utils"
 
 import { DownloadIcon } from "vue-feather-icons"

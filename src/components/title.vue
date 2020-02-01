@@ -93,7 +93,7 @@ export default {
     links: []
   }),
   watch: {
-    title (newVal, oldVal) {
+    title () {
       this.currentTitle = this.title
       this.setLinks()
     }

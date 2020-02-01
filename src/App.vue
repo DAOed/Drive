@@ -27,8 +27,8 @@ import AppHeader from "@components/partials/header"
 import AppFooter from "@components/partials/footer"
 import ProgressBar from "@components/progress"
 
-import { getFile, userSession, listAppFiles } from "@lib/blockstack"
-import { coreFolders, statsRefreshTime } from "@constants"
+import { getFile, userSession } from "@lib/blockstack"
+import { coreFolders } from "@constants"
 
 import { readyCoreFolders } from "@lib/utils"
 

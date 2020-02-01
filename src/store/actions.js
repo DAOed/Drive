@@ -44,9 +44,9 @@ export default {
   },
   coreFolderStats ({ commit }, payload) {
     commit("coreFolderStats", payload)
-  },
+  }
+  /*
   updateFolderStats ({ commit, state }, payload) {
-    /*
     let coreFolderStats = state.coreFolderStats
 
     switch (payload.action) {
@@ -94,6 +94,6 @@ export default {
     }
 
     commit("coreFolderStats", coreFolderStats)
-    */
   }
+    */
 }

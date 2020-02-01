@@ -215,8 +215,7 @@
 
 <script>
 
-import { erasePath, loadFolderMeta, newFolderMeta, updateFolderMeta,
-  formatBytes, loadFileContent, resetStar, undoTrash, deleteFileFromTrash } from "@lib/utils"
+import { loadFolderMeta, formatBytes, loadFileContent, resetStar, undoTrash, deleteFileFromTrash } from "@lib/utils"
 import { removeBaseFileName, sortModified } from "@lib/helpers"
 
 import { ArrowUpIcon, ArrowDownIcon, FileIcon, FolderIcon, ShoppingBagIcon, EyeOffIcon, EyeIcon } from "vue-feather-icons"

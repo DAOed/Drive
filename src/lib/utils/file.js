@@ -1,8 +1,8 @@
-import { metaIndexName, defaultPrefix, maxRawFiles, coreFolders, maxFilesPerFolder } from "@constants"
+import { maxRawFiles, maxFilesPerFolder } from "@constants"
 import { saveFile, getFile, deleteFile } from "@lib/blockstack"
 import { listFiles, getFileUrl } from "blockstack"
 
-import { makePath, updateFolderMeta, loadFolderMeta, uniquifyNewFileNames } from "@lib/utils"
+import { makePath, updateFolderMeta, uniquifyNewFileNames } from "@lib/utils"
 
 import store from "@store"
 

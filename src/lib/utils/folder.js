@@ -1,6 +1,5 @@
-import { metaIndexName, defaultPrefix, maxRawFiles, coreFolders } from "@constants"
-import { saveFile, getFile, deleteFile } from "@lib/blockstack"
-import { listFiles, getFileUrl } from "blockstack"
+import { metaIndexName } from "@constants"
+import { saveFile, getFile } from "@lib/blockstack"
 
 import { makePath, erasePath } from "@lib/utils"
 import { uuid } from "@lib/helpers"

@@ -129,8 +129,7 @@ export default {
     }
   },
   methods: {
-    viewItem (row, index) {
-      // this.tableData.splice(index, 1)
+    viewItem () {
     },
     async downloadItem (data) {
       this.progress += 5

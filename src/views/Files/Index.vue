@@ -35,7 +35,6 @@ import itemsView from "@components/views/full"
 import { coreFolders } from "@constants"
 import { loadFolderMeta, newFolderMeta, updateFolderMeta } from "@lib/utils"
 
-import { getFile, putFile } from "blockstack"
 import { mapGetters } from "vuex"
 
 export default {

@@ -190,8 +190,7 @@ import { ListIcon, GridIcon, ArrowUpIcon, ArrowDownIcon, PlusIcon, ShoppingBagIc
 import { newFiles, newFolder, openFolder, formatBytes, readLocalFiles, readExternalFile } from "@lib/utils"
 import { sortModified, removeBaseFileName, validUploadSize } from "@lib/helpers"
 
-import { mapGetters } from "vuex"
-import { maxFolderLevels, coreFolders, maxFileSize } from "@constants"
+import { maxFolderLevels, maxFileSize } from "@constants"
 
 export default {
   components: {

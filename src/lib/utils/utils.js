@@ -1,6 +1,6 @@
 
 import { coreFolders } from "@constants"
-import { loadFolderMeta, newFolderMeta, loadFolderMetas, createFolderMetas } from "@lib/utils"
+import { loadFolderMetas, createFolderMetas } from "@lib/utils"
 import md5 from "md5"
 
 import store from "@store"

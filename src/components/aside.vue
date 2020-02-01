@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { defaultFolder, maxRawFiles, coreFolders } from "@constants"
+import { maxRawFiles } from "@constants"
 import { removeBaseFileName } from "@lib/helpers"
 import { mapGetters } from "vuex"
 
