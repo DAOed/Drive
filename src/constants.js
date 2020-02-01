@@ -1,10 +1,8 @@
-import { AppConfig } from "blockstack"
 
-export const appConfig = new AppConfig(["store_write", "publish_data"])
+export const appScopes = ["store_write", "publish_data"]
+
 export const baseBlockstackApi = "https://core.blockstack.org/v1/"
 
-// important !!! to ensure all apps on subdomains can still access the same data from gaia as they get the same app ID
-export const appDomain = window.location.origin.indexOf("localhost") === 0 ? window.location.origin : "https://daoed.com"
 export const placeholderImg = "./img/placeholder.png"
 
 export const maxFileSize = 1048576
