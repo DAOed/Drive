@@ -50,7 +50,6 @@ module.exports = {
     }
   },
   pwa: {
-    name: 'DAOed Drive',
     /*
     themeColor: '#',
     msTileColor: '#',
