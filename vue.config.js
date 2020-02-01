@@ -32,7 +32,8 @@ module.exports = {
               inject: {
                 PRERENDER: true
               },
-              headless: true
+              headless: true,
+              renderAfterTime: 1000
             })
           })
         ],
