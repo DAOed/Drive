@@ -107,7 +107,7 @@ export default {
 
       // if new user, create base
       if (!folderMeta && name) {
-        folderMeta = newFolderMeta({ name, path })
+        folderMeta = newFolderMeta({ name, path, level: 0, sys: true })
         await updateFolderMeta(folderMeta.path, folderMeta)
       }
 
