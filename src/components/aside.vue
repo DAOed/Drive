@@ -29,15 +29,16 @@ export default {
       "coreFolderStats"
     ]),
     details () {
+      let coreFolderStats = this.coreFolderStats || {}
       return {
-        files: this.coreFolderStats.files,
-        starred: this.coreFolderStats.starred,
-        trash: this.coreFolderStats.trash,
-        console: this.coreFolderStats.console
+        files: coreFolderStats.files,
+        starred: coreFolderStats.starred,
+        trash: coreFolderStats.trash,
+        console: coreFolderStats.console
         /*
-        starred: this.coreFolderStats.starred,
-        locker: this.coreFolderStats.locker,
-        library: this.coreFolderStats.library,
+        starred: coreFolderStats.starred,
+        locker: coreFolderStats.locker,
+        library: coreFolderStats.library,
         */
       }
     },
