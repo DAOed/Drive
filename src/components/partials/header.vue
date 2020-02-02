@@ -30,6 +30,9 @@
               <zi-popover-item command="search">
                 DAOed Search
               </zi-popover-item>
+              <zi-popover-item command="library">
+                DAOed Library
+              </zi-popover-item>
               <zi-popover-item line />
               <zi-popover-item command="more">
                 More DApps
@@ -176,6 +179,9 @@ export default {
       switch (name) {
       case "search":
         url = "https://daoed.com"
+        break
+      case "library":
+        url = "https://library.daoed.com"
         break
       case "more":
         url = "https://about.daoed.com"
