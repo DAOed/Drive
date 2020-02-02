@@ -88,4 +88,9 @@ export default {
   width: 30rem;
   height: 30rem;
 }
+@media only screen and (max-width: 800px) {
+  .landing {
+    flex-wrap: wrap;
+  }
+}
 </style>
