@@ -28,114 +28,163 @@ export default {
       "folderMeta",
       "coreFolderStats"
     ]),
+    folderStats () {
+      return this.coreFolderStats
+    },
     details () {
-      let coreFolderStats = this.coreFolderStats || {}
+      let folderStats = this.folderStats || {}
       return {
-        files: coreFolderStats.files,
-        starred: coreFolderStats.starred,
-        trash: coreFolderStats.trash,
-        console: coreFolderStats.console
+        files: folderStats.files,
+        starred: folderStats.starred,
+        trash: folderStats.trash,
+        console: folderStats.console
         /*
-        starred: coreFolderStats.starred,
-        locker: coreFolderStats.locker,
-        library: coreFolderStats.library,
+        starred: folderStats.starred,
+        locker: folderStats.locker,
+        library: folderStats.library,
         */
       }
     },
     featuredFolders () {
-      return this.details.files.featuredFolders
+      return this.details && this.details.files ? this.details.files.featuredFolders : null
     },
     defaultFiles () {
-      return [
-        {
-          type: "directory",
-          name: "Files",
-          files: [
-            ...this.featuredFolders.map((ff) => ({
+      if ((this.coreFolders && !this.coreFolders.files) || this.featuredFolders) {
+        return [
+          {
+            type: "directory",
+            name: "Files",
+            files: [
+              {
+                type: "file",
+                name: "All uploads"
+              }]
+          },
+          {
+            type: "directory",
+            name: "Starred",
+            files: [{
               type: "file",
-              name: ff.name,
-              path: ff.path
-            })),
+              name: "(0) files"
+            },
             {
               type: "file",
-              name: "All uploads"
+              name: "(0) folders"
+            }]
+          },
+          {
+            type: "directory",
+            name: "Trash",
+            files: [{
+              type: "file",
+              name: "(0) files"
+            },
+            {
+              type: "file",
+              name: "(0) folders"
+            }]
+          },
+          {
+            type: "directory",
+            name: "Console",
+            files: [{
+              type: "file",
+              name: "Last ~" + maxRawFiles + " files"
+            }]
+          }
+        ]
+      } else {
+        return [
+          {
+            type: "directory",
+            name: "Files",
+            files: [
+              ...this.featuredFolders.map((ff) => ({
+                type: "file",
+                name: ff.name,
+                path: ff.path
+              })),
+              {
+                type: "file",
+                name: "All uploads"
+              }]
+          },
+          {
+            type: "directory",
+            name: "Starred",
+            files: [{
+              type: "file",
+              name: `(${this.details.starred.files}) files`
+            },
+            {
+              type: "file",
+              name: `(${this.details.starred.subfolders}) folders`
+            }]
+          },
+          /*
+        {
+          type: "directory",
+          name: "Shared",
+            files: [{
+              type: "file",
+              name: `(${this.details.shared.files}) files`
+            },
+            {
+              type: "file",
+              name: `(${this.details.shared.subfolders}) folders`
             }]
         },
         {
           type: "directory",
-          name: "Starred",
-          files: [{
-            type: "file",
-            name: `(${this.details.starred.files}) files`
-          },
-          {
-            type: "file",
-            name: `(${this.details.starred.subfolders}) folders`
-          }]
-        },
-        /*
-      {
-        type: "directory",
-        name: "Shared",
-          files: [{
-            type: "file",
-            name: `(${this.details.shared.files}) files`
-          },
-          {
-            type: "file",
-            name: `(${this.details.shared.subfolders}) folders`
-          }]
-      },
-      {
-        type: "directory",
-        name: "Locker",
-          files: [{
-            type: "file",
-            name: `(${this.details.locker.files}) files`
-          },
-          {
-            type: "file",
-            name: `(${this.details.locker.subfolders}) folders`
-          }]
-      },
-      {
-        type: "directory",
-        name: "Library",
-          files: [{
-            type: "file",
-            name: `(${this.details.library.files}) files`
-          },
-          {
-            type: "file",
-            name: `(${this.details.library.subfolders}) folders`
-          }]
-      },
-      */
-        {
-          type: "directory",
-          name: "Trash",
-          files: [{
-            type: "file",
-            name: `(${this.details.trash.files}) files`
-          },
-          {
-            type: "file",
-            name: `(${this.details.trash.subfolders}) folders`
-          }]
+          name: "Locker",
+            files: [{
+              type: "file",
+              name: `(${this.details.locker.files}) files`
+            },
+            {
+              type: "file",
+              name: `(${this.details.locker.subfolders}) folders`
+            }]
         },
         {
           type: "directory",
-          name: "Console",
-          files: [{
-            type: "file",
-            name: "Last ~" + maxRawFiles + " files"
-          }]
-        }
-      ]
+          name: "Library",
+            files: [{
+              type: "file",
+              name: `(${this.details.library.files}) files`
+            },
+            {
+              type: "file",
+              name: `(${this.details.library.subfolders}) folders`
+            }]
+        },
+        */
+          {
+            type: "directory",
+            name: "Trash",
+            files: [{
+              type: "file",
+              name: `(${this.details.trash.files}) files`
+            },
+            {
+              type: "file",
+              name: `(${this.details.trash.subfolders}) folders`
+            }]
+          },
+          {
+            type: "directory",
+            name: "Console",
+            files: [{
+              type: "file",
+              name: "Last ~" + maxRawFiles + " files"
+            }]
+          }
+        ]
+      }
     },
     meta () {
       return {
-        subfolders: this.coreFolderStats.files.subfolders
+        subfolders: this.folderStats.files.subfolders
       }
     },
     files () {

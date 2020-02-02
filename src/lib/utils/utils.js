@@ -48,15 +48,16 @@ export const readyCoreFolders = async (returnFolderName) => {
   let returnFolderMeta = null
 
   // get metas of all existing folders
-  let existingFolders = await loadFolderMetas(baseFolderNames)
+  let rawExistingFolders = await loadFolderMetas(baseFolderNames)
+  let validExistingFolders = rawExistingFolders.filter(Boolean)
   // index might be 0, if you use `if (returnFolderIndex) ...` it returns because of value is `0`, even though its an index
-  returnFolderMeta = existingFolders[returnFolderIndex]
+  returnFolderMeta = rawExistingFolders[returnFolderIndex]
 
   // prepare core folders' stats and set to store
   let coreFolderStats = {}
 
   Object.keys(coreFolders).map((f) => {
-    let targetFolder = existingFolders.find((ef) => ef.name === f.toUpperCase()) || {}
+    let targetFolder = validExistingFolders.find((ef) => ef.name === f.toUpperCase()) || {}
 
     coreFolderStats[f] = {
       name: (targetFolder.name || f).toLowerCase(),
@@ -69,11 +70,13 @@ export const readyCoreFolders = async (returnFolderName) => {
   store.dispatch("coreFolderStats", coreFolderStats)
 
   // filter out folders that do not have the metas
-  let missingFolders = existingFolders.map((f, i) => {
+
+  let missingFolders = rawExistingFolders.map((f, i) => {
     if (!f) {
       return baseFolderNames[i]
     }
   })
+
   missingFolders = missingFolders.filter(Boolean)
 
   let missingFoldersMetas = missingFolders.map((folder) => ({

@@ -14,7 +14,7 @@ export const loadFolderMeta = async (path) => {
 export const deleteFolderMeta = (path) => erasePath(`${path}/${metaIndexName}`)
 
 export const newFolderMeta = (meta) => {
-  if (!meta.name || !meta.path || !meta.level) throw new Error("Invalid folder meta")
+  if (!meta.name || !meta.path || isNaN(meta.level)) throw new Error("Invalid folder meta")
 
   return {
     name: meta.name,
@@ -34,18 +34,18 @@ export const newFolderMeta = (meta) => {
 
 export const updateFolderMeta = (meta) => saveFile(`${meta.path}/${metaIndexName}`, meta)
 
-export const createFolderMeta = async (name, path, meta) => {
+export const createFolderMeta = async ({ name, path, level }, meta) => {
   if ((!name && !path) && !meta) throw new Error("Invalid params")
 
-  meta = newFolderMeta(meta || { name, path })
+  meta = newFolderMeta(meta || { name, path, level })
   await updateFolderMeta(meta)
 }
 
-export const createFolderMetas = async (names, paths, metas) => {
+export const createFolderMetas = async ({ names, paths, levels }, metas) => {
   if ((!names && !paths) && !metas) throw new Error("Invalid params")
 
   for (let i = 0; i < (names || metas).length; i++) {
-    let meta = newFolderMeta(metas ? metas[i] : { name: names[i], path: paths[i] })
+    let meta = newFolderMeta(metas ? metas[i] : { name: names[i], path: paths[i], level: levels[i] })
     await updateFolderMeta(meta)
   }
 }
