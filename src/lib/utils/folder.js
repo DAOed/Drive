@@ -41,11 +41,9 @@ export const createFolderMeta = async ({ name, path, level }, meta) => {
   await updateFolderMeta(meta)
 }
 
-export const createFolderMetas = async ({ names, paths, levels }, metas) => {
-  if ((!names && !paths) && !metas) throw new Error("Invalid params")
-
-  for (let i = 0; i < (names || metas).length; i++) {
-    let meta = newFolderMeta(metas ? metas[i] : { name: names[i], path: paths[i], level: levels[i] })
+export const createFolderMetas = async (metas) => {
+  for (let i = 0; i < metas.length; i++) {
+    let meta = newFolderMeta(metas[i])
     await updateFolderMeta(meta)
   }
 }

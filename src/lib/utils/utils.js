@@ -91,7 +91,7 @@ export const readyCoreFolders = async (returnFolderName) => {
   )
 
   // create missing folders
-  await createFolderMetas(null, null, missingFoldersMetas)
+  await createFolderMetas(missingFoldersMetas)
 
   return returnFolderMeta
 }
