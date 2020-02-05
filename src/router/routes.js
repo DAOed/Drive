@@ -187,5 +187,9 @@ export default [
         }
       ]
     }
+  },
+  {
+    path: "*",
+    redirect: "/"
   }
 ]
