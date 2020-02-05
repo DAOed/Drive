@@ -19,7 +19,7 @@
               auto
               title="More dapps"
             >
-              <span>
+              <span style="display: flex; align-items: center;">
                 <grid-icon
                   class="icon-class"
                   size="1.5x"
