@@ -4,5 +4,5 @@ export default {
   theme: "light",
   settings: {},
   folderMeta: {},
-  coreFolderStats: null
+  coreFolderStats: {}
 }

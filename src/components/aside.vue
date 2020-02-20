@@ -46,10 +46,10 @@ export default {
       }
     },
     featuredFolders () {
-      return this.details && this.details.files ? this.details.files.featuredFolders : null
+      return this.details && this.details.files ? this.details.files.featuredFolders : []
     },
     defaultFiles () {
-      if ((this.coreFolders && !this.coreFolders.files) || this.featuredFolders) {
+      if ((this.coreFolders && !this.coreFolders.files) || !this.featuredFolders.length) {
         return [
           {
             type: "directory",
